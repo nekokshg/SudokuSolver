@@ -10,6 +10,26 @@ testList = [[8,-1,-1,9,3,-1,-1,-1,2],
             [-1,3,-1,-1,-1,-1,5,-1,-1],
             [5,-1,-1,-1,6,2,-1,-1,8]]
 
+def printPuzzle(puzzle):
+    '''Function to print entire puzzle'''
+
+    for row in range(9):
+        for col in range(9):
+            print(puzzle[row][col])
+
+def getBox(row, col):
+    '''Function to return array based on 3x3 box which contains row and column'''
+
+    #square = []
+    '''
+    1//3 =3
+    2//3 = 6
+    3//3 = 0
+
+    
+    '''
+
+    #return square
 
 def isValid(puzzle, guess, row, col):
     '''Function to put a valid number in empty space'''
@@ -25,7 +45,9 @@ def isValid(puzzle, guess, row, col):
             return False
 
     #check if guess in 3x3 square
+    getBox(row,col)
     
+
     return True
 
 
@@ -39,12 +61,6 @@ def isEmpty(puzzle):
     
     return None, None
 
-def printPuzzle(puzzle):
-    '''Function to print entire puzzle'''
-
-    for row in range(9):
-        for col in range(9):
-            print(puzzle[row][col])
         
 def solveSudoku(puzzle):
     '''Function to solve sudoku puzzle'''
@@ -60,3 +76,5 @@ def solveSudoku(puzzle):
     for guess in range(1,10):
         if isValid(puzzle, guess, row, col):
             puzzle[row][col] = guess
+
+solveSudoku(testList)
